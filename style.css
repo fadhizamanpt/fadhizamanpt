@@ -759,3 +759,66 @@ section::before {
 .big-heading::after {
   display: none; /* disables the decorative line */
 }
+/* --- Your original CSS (with mobile menu fixes) --- */
+
+:root {
+  --primary-dark: #0A0A0A;           
+  --primary-gray: #141414;           
+  --primary-light: #1E1E1E;          
+  --accent: #C9A87A;                 
+  --accent-alt: #E0C092;             
+  --accent-secondary: #8A6B3F;       
+  --text-light: #F0F0F0;             
+  --text-secondary: #A0A0A0;         
+  --glass-dark: rgba(10, 10, 10, 0.88);
+  --glass-medium: rgba(30, 30, 30, 0.65);
+  --glass-light: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(201, 168, 122, 0.15);
+  --gradient-angle: 145deg;
+}
+
+/* General styles ... (all your existing CSS remains) */
+
+/* Mobile menu button */
+.menu-btn {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+  background: linear-gradient(135deg, 
+              rgba(201, 168, 122, 0.1) 0%, 
+              rgba(138, 107, 63, 0.05) 100%);
+  padding: 10px 14px;
+  border-radius: 12px;
+  z-index: 2000; /* ensure button stays clickable above nav */
+}
+
+/* Mobile nav links */
+@media (max-width: 768px) {
+  .menu-btn { display: flex; align-items: center; justify-content: center; }
+
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: var(--glass-dark);
+    backdrop-filter: blur(28px) saturate(180%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 60px;
+    gap: 25px;
+    transition: left 0.4s ease;
+    z-index: 1500;
+  }
+
+  .nav-links.active { left: 0; }
+
+  .nav-links li { margin: 0; width: 100%; text-align: center; }
+
+  .nav-links a { display: block; width: 80%; margin: 0 auto; padding: 16px; }
+}
+
+/* --- rest of your CSS remains unchanged --- */
