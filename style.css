@@ -981,3 +981,37 @@ body::before {
 .nav-links {
   z-index: 1500;
 }
+/* --- Remove pill/background behind name text --- */
+.logo span {
+  background: none !important;         /* remove gradient background */
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: var(--accent) !important; /* keep the gold text */
+  padding: 0 !important;               /* remove any extra spacing */
+  border-radius: 0 !important;         /* remove pill corners */
+  font-size: 1.5rem !important;        /* slightly smaller text */
+  line-height: 1.1;
+}
+
+/* Optional: reduce the size of the whole logo if needed */
+.logo {
+  font-size: 1.6rem !important;        /* smaller logo text */
+  padding: 4px 8px !important;         /* reduce padding around logo */
+  background: none !important;         /* remove any background */
+}
+/* Make all sections visible instantly */
+section {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: none !important;  /* remove smooth fade/slide */
+}
+
+/* Make floating elements fully visible instantly */
+.bg-elements .element {
+  opacity: 0.15 !important;  /* default opacity */
+  animation-play-state: running !important; /* start animations immediately */
+}
+.bg-elements .element {
+  animation: float calc(6s + random(4s)) ease-in-out infinite alternate;
+  width: calc(20px + random(40px));
+  height: calc(20px + random(40px));
+}
