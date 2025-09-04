@@ -162,3 +162,13 @@ document.addEventListener('mousemove', e => {
     el.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
   });
 });
+// Make all sections animate instantly on page load
+document.querySelectorAll('section').forEach(section => {
+  section.classList.add('animate');  // forces 'animate' class immediately
+  section.style.transition = 'none'; // remove transition delay
+});
+
+// Start floating element animations immediately
+document.querySelectorAll('.bg-elements .element').forEach(el => {
+  el.style.animationPlayState = 'running';
+});
