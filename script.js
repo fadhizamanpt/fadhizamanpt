@@ -1,4 +1,6 @@
+// ===============================
 // Navigation functionality
+// ===============================
 const nav = document.querySelector('nav');
 const menuBtn = document.querySelector('.menu-btn');
 const navLinks = document.querySelector('.nav-links');
@@ -19,7 +21,9 @@ document.querySelectorAll('.nav-links a').forEach(link => {
   link.addEventListener('click', () => navLinks.classList.remove('active'));
 });
 
+// ===============================
 // Form submission
+// ===============================
 const contactForm = document.getElementById('contactForm');
 contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
@@ -29,7 +33,9 @@ contactForm.addEventListener('submit', (e) => {
   contactForm.reset();
 });
 
+// ===============================
 // Section animations on scroll
+// ===============================
 const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -39,13 +45,18 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 document.querySelectorAll('section').forEach(section => observer.observe(section));
 
-// Scroll-spy + smooth scroll
+// ===============================
+// Scroll-spy + smooth scroll (CLEANED)
+// ===============================
 document.addEventListener('DOMContentLoaded', () => {
   const navLinksContainer = document.querySelector('.nav-links');
   const navLinks = document.querySelectorAll('.nav-links a');
   const sections = document.querySelectorAll('section');
 
-  function getNavHeight() { return nav ? nav.getBoundingClientRect().height : 0; }
+  function getNavHeight() {
+    return nav ? nav.getBoundingClientRect().height : 0;
+  }
+
   function setActiveLink(id) {
     navLinks.forEach(link => {
       link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
@@ -57,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top, behavior: 'smooth' });
   }
 
+  // smooth scroll when clicking
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -66,10 +78,28 @@ document.addEventListener('DOMContentLoaded', () => {
       navLinksContainer.classList.remove('active');
     });
   });
+
+  // scroll-spy check
+  function checkActiveSection() {
+    let current = "";
+    sections.forEach(section => {
+      const rect = section.getBoundingClientRect();
+      if (rect.top <= getNavHeight() + 50 && rect.bottom > getNavHeight() + 50) {
+        current = section.id;
+      }
+    });
+    if (current) setActiveLink(current);
+  }
+
+  // run on load + on scroll
+  window.addEventListener('scroll', checkActiveSection);
+  checkActiveSection();
 });
 
+// ===============================
 // Floating Elements Generator
-function createFloatingElements(sectionId, type='circle', count=12) {
+// ===============================
+function createFloatingElements(sectionId, type = 'circle', count = 12) {
   const section = document.getElementById(sectionId);
   if (!section) return;
   const container = section.querySelector('.bg-elements');
@@ -88,17 +118,19 @@ function createFloatingElements(sectionId, type='circle', count=12) {
     container.appendChild(el);
   }
 }
-createFloatingElements('dashboard','circle',12);
-createFloatingElements('about','triangle',10);
-createFloatingElements('channel','square',12);
-createFloatingElements('contact','circle',15);
+createFloatingElements('dashboard', 'circle', 12);
+createFloatingElements('about', 'triangle', 10);
+createFloatingElements('channel', 'square', 12);
+createFloatingElements('contact', 'circle', 15);
 
+// ===============================
 // Cursor interaction
+// ===============================
 document.addEventListener('mousemove', e => {
-  document.querySelectorAll('.bg-elements .element').forEach((el,i) => {
-    const speed = (i+1)*0.01;
-    const offsetX = (e.clientX - window.innerWidth/2) * speed;
-    const offsetY = (e.clientY - window.innerHeight/2) * speed;
+  document.querySelectorAll('.bg-elements .element').forEach((el, i) => {
+    const speed = (i + 1) * 0.01;
+    const offsetX = (e.clientX - window.innerWidth / 2) * speed;
+    const offsetY = (e.clientY - window.innerHeight / 2) * speed;
     el.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
   });
 });
