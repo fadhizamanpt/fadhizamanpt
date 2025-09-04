@@ -173,7 +173,4 @@ document.querySelectorAll('.bg-elements .element').forEach(el => {
   el.style.animationPlayState = 'running';
 });
 
-// Force scroll to top on page load
-window.addEventListener('load', () => {
-  window.scrollTo({ top: 0, behavior: 'instant' }); // instantly jump to top
-});
+
