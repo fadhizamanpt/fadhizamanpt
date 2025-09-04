@@ -822,3 +822,162 @@ section::before {
 }
 
 /* --- rest of your CSS remains unchanged --- */
+/* Active + Tap Effect */
+.nav-links a.active,
+.nav-links a.tap {
+  color: #00f5d4;      /* highlight color */
+  transform: scale(0.95);
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+/* Optional hover */
+.nav-links a:hover {
+  color: #00f5d4;
+}
+/* Active + Tap Effect (scroll-spy + click/tap) */
+.nav-links a.active,
+.nav-links a.tap {
+  color: var(--accent); /* gold accent */
+  font-weight: 700;
+  transform: scale(0.95);
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+/* Active underline (works with scroll-spy + tap) */
+.nav-links a.active::after,
+.nav-links a.tap::after {
+  width: 70%; /* underline visible */
+  background: linear-gradient(to right, var(--accent), var(--accent-alt));
+}
+
+/* Hover still works */
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* Tap animation keyframes */
+.nav-links a.tap {
+  animation: navTap 220ms cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes navTap {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0.92); }
+  100% { transform: scale(0.95); } /* syncs with active state */
+}
+/* --- Remove unwanted glow effects --- */
+
+/* Remove glow behind "Hey, I'm Fadhi" big heading */
+.big-heading {
+  text-shadow: none !important;
+}
+
+/* Remove glow/shadow behind "Visit my channel" button */
+.btn {
+  box-shadow: none !important;
+}
+/* --- Ultra Transparent Glass Effect --- */
+.glass {
+  background: rgba(10, 10, 10, 0.35) !important; /* very see-through */
+  backdrop-filter: blur(45px) saturate(240%) !important;
+  -webkit-backdrop-filter: blur(45px) saturate(240%) !important;
+  border: 1px solid rgba(201, 168, 122, 0.18) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+.glass-light {
+  background: rgba(30, 30, 30, 0.28) !important;
+  backdrop-filter: blur(40px) saturate(220%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(220%) !important;
+  border: 1px solid rgba(201, 168, 122, 0.15) !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.hero-content,
+.channel-content,
+.contact-content {
+  background: rgba(15, 15, 15, 0.32) !important; /* almost clear */
+  backdrop-filter: blur(42px) saturate(230%) !important;
+  -webkit-backdrop-filter: blur(42px) saturate(230%) !important;
+  border: 1px solid rgba(201, 168, 122, 0.18) !important;
+}
+/* --- Transparent Glass Effect for Achievement Cards --- */
+.achievement-card {
+  background: rgba(20, 20, 20, 0.32) !important;  /* more see-through */
+  backdrop-filter: blur(40px) saturate(230%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(230%) !important;
+  border: 1px solid rgba(201, 168, 122, 0.18) !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+  background: rgba(25, 25, 25, 0.38) !important; /* slightly darker on hover */
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+/* Apply blur to nav menu when active (mobile toggle) */
+.nav-links.active {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+/* --- Blur + Dark Background when mobile menu is active --- */
+body.menu-open {
+  overflow: hidden; /* stop background scroll */
+}
+
+body.menu-open::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.6); /* darker overlay */
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 999; /* sits behind nav menu */
+  transition: opacity 0.4s ease;
+  opacity: 1;
+}
+
+/* Hide overlay when not active */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+/* Overlay behind nav menu */
+body.menu-open::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.65); /* darker black */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1200;  /* sits below nav menu */
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Ensure nav menu is above overlay */
+.nav-links {
+  z-index: 1500;
+}
