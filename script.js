@@ -61,21 +61,20 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('section').forEach(section => observer.observe(section));
 
 // ===============================
-// Scroll-spy + smooth scroll (CLEANED)
+// Scroll-spy + smooth scroll + scroll-down button
 // ===============================
 document.addEventListener('DOMContentLoaded', () => {
   const navLinksContainer = document.querySelector('.nav-links');
   const navLinks = document.querySelectorAll('.nav-links a');
   const sections = document.querySelectorAll('section');
+  const scrollDown = document.querySelector('.scroll-down-text');
 
   function getNavHeight() {
     return nav ? nav.getBoundingClientRect().height : 0;
   }
 
   function setActiveLink(id) {
-    navLinks.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-    });
+    navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${id}`));
   }
 
   function smoothScrollTo(target) {
@@ -83,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.scrollTo({ top, behavior: 'smooth' });
   }
 
-  // smooth scroll when clicking
+  // Nav links click
   navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
@@ -94,7 +93,22 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // scroll-spy check
+  // Scroll-down button behaves like About link
+  if (scrollDown) {
+    scrollDown.addEventListener('click', (e) => {
+      e.preventDefault();
+      const aboutLink = document.querySelector('.nav-links a[href="#about"]');
+      if (aboutLink) {
+        // tap effect
+        aboutLink.classList.add('tap');
+        setTimeout(() => aboutLink.classList.remove('tap'), 260);
+        // trigger smooth scroll & close mobile menu
+        aboutLink.click();
+      }
+    });
+  }
+
+  // Scroll-spy
   function checkActiveSection() {
     let current = "";
     sections.forEach(section => {
@@ -106,7 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (current) setActiveLink(current);
   }
 
-  // run on load + on scroll
   window.addEventListener('scroll', checkActiveSection);
   checkActiveSection();
 });
