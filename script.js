@@ -172,6 +172,36 @@ document.querySelectorAll('section').forEach(section => {
 document.querySelectorAll('.bg-elements .element').forEach(el => {
   el.style.animationPlayState = 'running';
 });
+// Disable browser scroll restoration and force top
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual'; // prevents automatic restoration
+}
+
+window.addEventListener('beforeunload', () => {
+  window.scrollTo(0, 0); // jump to top before reload
+});
+
+window.addEventListener('load', () => {
+  window.scrollTo(0, 0); // jump to top on load
+});
+const backTop = document.querySelector('.back-to-top');
+
+window.addEventListener('scroll', () => {
+  // Show only when at very bottom
+  if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 5) {
+    backTop.style.opacity = 1;
+    backTop.style.pointerEvents = 'auto';
+  } else {
+    backTop.style.opacity = 0;
+    backTop.style.pointerEvents = 'none';
+  }
+});
+
+backTop.addEventListener('click', e => {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
 
 
 
