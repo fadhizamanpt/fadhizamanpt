@@ -22,15 +22,30 @@ document.querySelectorAll('.nav-links a').forEach(link => {
 });
 
 // ===============================
-// Form submission
+// Form submission (FIXED for Formspree)
 // ===============================
 const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', (e) => {
+contactForm.addEventListener('submit', async (e) => {
   e.preventDefault();
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  alert(`Thank you ${name}! Your message has been received. I will get back to you at ${email} soon.`);
-  contactForm.reset();
+  
+  const formData = new FormData(contactForm);
+
+  try {
+    const response = await fetch(contactForm.action, {
+      method: "POST",
+      body: formData,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      alert("✅ Thank you! Your message has been sent successfully.");
+      contactForm.reset();
+    } else {
+      alert("⚠️ Oops! Something went wrong, please try again.");
+    }
+  } catch (error) {
+    alert("❌ Network error, please check your connection.");
+  }
 });
 
 // ===============================
