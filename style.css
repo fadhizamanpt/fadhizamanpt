@@ -1015,3 +1015,11 @@ section {
   width: calc(20px + random(40px));
   height: calc(20px + random(40px));
 }
+footer {
+  display: none !important;
+}
+.nav-links {
+  background: rgba(5, 5, 5, 0.98) !important; /* almost solid black tint */
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
