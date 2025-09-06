@@ -1079,3 +1079,22 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-size: 1rem;
 }
+/* Reveal addon: initial + active states (stronger specificity to override inline styles) */
+.reveal-init {
+  opacity: 0 !important;
+  transform: translateY(18px) !important;
+  will-change: opacity, transform;
+  transition: opacity 0.52s cubic-bezier(.22,.98,.52,1), transform 0.52s cubic-bezier(.22,.98,.52,1) !important;
+}
+
+.reveal-active {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* small stagger visual (optional) — use only if you want slight delay */
+.reveal-init.reveal-active:nth-child(4n) { transition-delay: 0.03s; }
+.reveal-init.reveal-active:nth-child(4n+1) { transition-delay: 0.06s; }
+.reveal-init.reveal-active:nth-child(4n+2) { transition-delay: 0.09s; }
+.reveal-init.reveal-active:nth-child(4n+3) { transition-delay: 0.00s; }
+
