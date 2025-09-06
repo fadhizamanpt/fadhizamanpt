@@ -1053,15 +1053,15 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.01em !important;
 }
 
-/* Dashboard hero alignment fix */
+/* Center hero content group */
 .hero-content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* pushes first & last to edges, tagline in middle */
   align-items: center;
   text-align: center;
-  min-height: 80vh; /* adjust: makes enough room for spacing */
-  padding: 2rem;
+  min-height: auto; /* don’t stretch full height */
+  padding: 3rem 2rem;
+  gap: 1.5rem; /* vertical spacing between elements */
 }
 
 .hero-content h1 {
@@ -1069,7 +1069,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .hero-content p {
-  margin: 0; /* remove default spacing */
+  margin: 0;
   font-size: 1.2rem;
   max-width: 700px;
   line-height: 1.5;
@@ -1079,5 +1079,3 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-size: 1rem;
 }
-
-
