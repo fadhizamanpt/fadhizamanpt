@@ -223,45 +223,5 @@ document.querySelectorAll('.glass, .section-title, .btn').forEach(el => {
 });
 
 
-// ======= Reliable Continuous Reveal Addon (single observer) =======
-document.addEventListener('DOMContentLoaded', () => {
-  // Select targets (adjust selector if you want more/less)
-  const targets = Array.from(document.querySelectorAll('.glass, .section-title, .btn, section'));
-
-  if (!targets.length) return;
-
-  // Ensure initial hidden state via classes (avoids inline-style conflicts)
-  targets.forEach(el => {
-    el.classList.add('reveal-init'); // set initial hidden state
-  });
-
-  // Create one observer for performance
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('reveal-active');
-      } else {
-        entry.target.classList.remove('reveal-active');
-      }
-    });
-  }, {
-    threshold: 0.18 // tweak: lower = triggers sooner, higher = require more in view
-  });
-
-  targets.forEach(el => revealObserver.observe(el));
-
-  // Optional: force a tick so any previous inline transition:none doesn't block us
-  requestAnimationFrame(() => {
-    // small no-op to let browser settle
-  });
-});
-
-
-
-
-
-
-
-
 
 
