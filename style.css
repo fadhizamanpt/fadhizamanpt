@@ -1038,3 +1038,19 @@ footer {
     -webkit-backdrop-filter: none !important;
   }
 }
+/* === Standard Professional Text Spacing === */
+
+/* Apply to body text */
+body, p, span, li {
+  line-height: 1.5 !important;     /* clean vertical rhythm */
+  letter-spacing: 0 !important;    /* natural horizontal spacing */
+  word-spacing: 0.05em !important; /* subtle spacing for readability */
+}
+
+/* Headings tighter but still readable */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2 !important;     /* tighter, like Apple/Google */
+  letter-spacing: -0.01em !important;
+}
+
+
