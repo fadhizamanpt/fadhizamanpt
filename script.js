@@ -202,28 +202,6 @@ backTop.addEventListener('click', e => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-// Continuous reveal/unreveal on scroll
-document.querySelectorAll('.glass, .section-title, .btn').forEach(el => {
-  el.style.opacity = 0;
-  el.style.transform = 'translateY(30px)';
-  el.style.transition = 'all 0.7s ease';
-
-  const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        el.style.opacity = 1;
-        el.style.transform = 'translateY(0)';
-      } else {
-        el.style.opacity = 0;
-        el.style.transform = 'translateY(30px)';
-      }
-    });
-  }, { threshold: 0.2 });
-
-  revealObserver.observe(el);
-});
-
-
 
 
 
