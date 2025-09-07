@@ -127,11 +127,12 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===============================
 // Floating Elements Generator
 // ===============================
-function createFloatingElements(sectionId, type = 'circle', count = 12) {
+function createFloatingElements(sectionId, type = 'circle', count = 20) {
   const section = document.getElementById(sectionId);
   if (!section) return;
   const container = section.querySelector('.bg-elements');
   container.innerHTML = '';
+  const step = 100 / count; // spread uniformly
   for (let i = 0; i < count; i++) {
     const el = document.createElement('div');
     el.classList.add('element', type);
@@ -139,29 +140,23 @@ function createFloatingElements(sectionId, type = 'circle', count = 12) {
     el.style.width = size + 'px';
     el.style.height = size + 'px';
     el.style.top = Math.random() * 100 + '%';
-    el.style.left = Math.random() * 100 + '%';
+    el.style.left = step * i + '%'; // uniform distribution
     const duration = 4 + Math.random() * 6;
     const delay = Math.random() * 5;
     el.style.animation = `float ${duration}s ease-in-out ${delay}s infinite alternate`;
     container.appendChild(el);
   }
 }
-createFloatingElements('dashboard', 'circle', 12);
-createFloatingElements('about', 'triangle', 10);
-createFloatingElements('channel', 'square', 12);
-createFloatingElements('contact', 'circle', 15);
+
+// Updated element counts and uniform spread
+createFloatingElements('dashboard', 'circle', 25);
+createFloatingElements('about', 'triangle', 15);
+createFloatingElements('channel', 'square', 20);
+createFloatingElements('contact', 'circle', 25);
 
 // ===============================
-// Cursor interaction
-// ===============================
-document.addEventListener('mousemove', e => {
-  document.querySelectorAll('.bg-elements .element').forEach((el, i) => {
-    const speed = (i + 1) * 0.01;
-    const offsetX = (e.clientX - window.innerWidth / 2) * speed;
-    const offsetY = (e.clientY - window.innerHeight / 2) * speed;
-    el.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-  });
-});
+// Removed cursor interaction on 3D elements
+
 // Make all sections animate instantly on page load
 document.querySelectorAll('section').forEach(section => {
   section.classList.add('animate');  // forces 'animate' class immediately
@@ -172,35 +167,10 @@ document.querySelectorAll('section').forEach(section => {
 document.querySelectorAll('.bg-elements .element').forEach(el => {
   el.style.animationPlayState = 'running';
 });
-// Disable browser scroll restoration and force top
-if ('scrollRestoration' in history) {
-  history.scrollRestoration = 'manual'; // prevents automatic restoration
-}
 
-window.addEventListener('beforeunload', () => {
-  window.scrollTo(0, 0); // jump to top before reload
-});
+// ===============================
+// Removed back-to-top button code
 
-window.addEventListener('load', () => {
-  window.scrollTo(0, 0); // jump to top on load
-});
-const backTop = document.querySelector('.back-to-top');
-
-window.addEventListener('scroll', () => {
-  // Show only when at very bottom
-  if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 5) {
-    backTop.style.opacity = 1;
-    backTop.style.pointerEvents = 'auto';
-  } else {
-    backTop.style.opacity = 0;
-    backTop.style.pointerEvents = 'none';
-  }
-});
-
-backTop.addEventListener('click', e => {
-  e.preventDefault();
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-});
 // Continuous reveal/unreveal on scroll
 document.querySelectorAll('.glass, .section-title, .btn').forEach(el => {
   el.style.opacity = 0;
@@ -221,7 +191,3 @@ document.querySelectorAll('.glass, .section-title, .btn').forEach(el => {
 
   revealObserver.observe(el);
 });
-
-
-
-
