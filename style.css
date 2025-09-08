@@ -1,17 +1,17 @@
-/* Enhanced Premium Dark Glassmorphic Theme - Consolidated */
+/* Enhanced Premium Dark Glassmorphic Theme */
 :root {
-  --primary-dark: #0A0A0A;
-  --primary-gray: #141414;
-  --primary-light: #1E1E1E;
-  --accent: #C9A87A;
-  --accent-alt: #E0C092;
-  --accent-secondary: #8A6B3F;
-  --text-light: #F0F0F0;
-  --text-secondary: #A0A0A0;
-  --glass-dark: rgba(10, 10, 10, 0.35);
-  --glass-medium: rgba(30, 30, 30, 0.28);
+  --primary-dark: #0A0A0A;           /* Deeper, richer black */
+  --primary-gray: #141414;           /* Dark charcoal */
+  --primary-light: #1E1E1E;          /* Slightly elevated dark */
+  --accent: #C9A87A;                 /* Warm premium gold */
+  --accent-alt: #E0C092;             /* Lighter gold for highlights */
+  --accent-secondary: #8A6B3F;       /* Darker gold for depth */
+  --text-light: #F0F0F0;             /* Softer off-white */
+  --text-secondary: #A0A0A0;         /* Muted text for hierarchy */
+  --glass-dark: rgba(10, 10, 10, 0.88);
+  --glass-medium: rgba(30, 30, 30, 0.65);
   --glass-light: rgba(255, 255, 255, 0.06);
-  --glass-border: rgba(201, 168, 122, 0.18);
+  --glass-border: rgba(201, 168, 122, 0.15);
   --gradient-angle: 145deg;
 }
 
@@ -38,30 +38,46 @@ body {
   min-height: 100vh;
 }
 
-/* Enhanced Glassmorphism */
+/* Enhanced Glassmorphism with layered effects */
 .glass {
   background: var(--glass-dark);
-  backdrop-filter: blur(45px) saturate(240%);
-  -webkit-backdrop-filter: blur(45px) saturate(240%);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 
+    0 16px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05),
+    0 1px 4px rgba(0, 0, 0, 0.2);
 }
 
 .glass-light {
   background: var(--glass-medium);
-  backdrop-filter: blur(40px) saturate(220%);
-  -webkit-backdrop-filter: blur(40px) saturate(220%);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+  box-shadow: 
+    0 10px 35px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 
-/* Border radius hierarchy */
-.rounded-xl { border-radius: 24px; }
-.rounded-lg { border-radius: 20px; }
-.rounded-md { border-radius: 16px; }
-.rounded-sm { border-radius: 12px; }
+/* Enhanced curved corners with hierarchy */
+.rounded-xl { 
+  border-radius: 24px; 
+}
 
-/* Section styling */
+.rounded-lg { 
+  border-radius: 20px; 
+}
+
+.rounded-md { 
+  border-radius: 16px; 
+}
+
+.rounded-sm { 
+  border-radius: 12px; 
+}
+
+/* Section styling with enhanced visual hierarchy */
 section {
   min-height: 100vh;
   padding: 100px 20px;
@@ -70,6 +86,12 @@ section {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+section.animate {
   opacity: 1;
   transform: translateY(0);
 }
@@ -83,7 +105,7 @@ section {
   z-index: 2;
 }
 
-/* Navigation */
+/* Enhanced Navigation with gradient border */
 nav {
   position: fixed;
   top: 0;
@@ -111,10 +133,22 @@ nav .container {
 }
 
 .logo {
-  font-size: 1.6rem;
+  font-size: 1.9rem;
   font-weight: 800;
-  color: var(--accent);
-  padding: 4px 8px;
+  color: var(--text-light);
+  position: relative;
+  padding: 8px 16px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, 
+              rgba(201, 168, 122, 0.1) 0%, 
+              rgba(138, 107, 63, 0.05) 100%);
+}
+
+.logo span { 
+  background: linear-gradient(to right, var(--accent), var(--accent-alt));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
 }
 
 .nav-links { 
@@ -135,12 +169,14 @@ nav .container {
   position: relative;
   padding: 10px 16px;
   border-radius: 16px;
+  background: transparent;
 }
 
-.nav-links a:hover,
-.nav-links a.active,
-.nav-links a.tap {
+.nav-links a:hover {
   color: var(--accent);
+  background: linear-gradient(135deg, 
+              rgba(201, 168, 122, 0.1) 0%, 
+              rgba(138, 107, 63, 0.05) 100%);
 }
 
 .nav-links a::after {
@@ -156,20 +192,8 @@ nav .container {
   border-radius: 2px;
 }
 
-.nav-links a:hover::after,
-.nav-links a.active::after,
-.nav-links a.tap::after { 
+.nav-links a:hover::after { 
   width: 70%; 
-}
-
-.nav-links a.tap {
-  animation: navTap 220ms cubic-bezier(.2,.8,.2,1);
-}
-
-@keyframes navTap {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(0.92); }
-  100% { transform: scale(0.95); }
 }
 
 .menu-btn {
@@ -182,18 +206,39 @@ nav .container {
               rgba(138, 107, 63, 0.05) 100%);
   padding: 10px 14px;
   border-radius: 12px;
-  z-index: 2000;
 }
 
-/* Hero section */
+/* Enhanced Big Gradient Heading with metallic effect */
 .big-heading {
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: var(--accent);
+  font-size: 5.5rem;
+  font-weight: 900;
+  background: linear-gradient(to right, 
+              var(--accent) 0%, 
+              var(--accent-alt) 30%, 
+              #F9E3BE 70%, 
+              var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin: 0 0 20px;
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.1;
+  text-shadow: 0 4px 30px rgba(201, 168, 122, 0.3);
+  position: relative;
   letter-spacing: -0.5px;
+}
+
+.big-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 180px;
+  height: 4px;
+  background: linear-gradient(to right, 
+              var(--accent) 0%, 
+              var(--accent-alt) 100%);
+  border-radius: 4px;
 }
 
 .hero-content {
@@ -205,25 +250,26 @@ nav .container {
   margin: 50px auto;
   max-width: 900px;
   border-radius: 32px;
-  background: rgba(15, 15, 15, 0.32);
-  backdrop-filter: blur(42px) saturate(230%);
-  -webkit-backdrop-filter: blur(42px) saturate(230%);
+  background: var(--glass-dark);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-  gap: 1.5rem;
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .hero-content p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   color: var(--text-light);
   max-width: 650px;
-  margin: 0;
-  line-height: 1.5;
+  margin: 0 auto 35px;
+  line-height: 1.7;
   text-align: center;
   font-weight: 400;
 }
 
-/* Buttons */
+/* Enhanced Premium Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -243,6 +289,7 @@ nav .container {
   text-decoration: none;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 8px 30px rgba(201, 168, 122, 0.3);
   letter-spacing: 0.5px;
 }
 
@@ -262,13 +309,14 @@ nav .container {
 
 .btn:hover {
   transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(201, 168, 122, 0.4);
 }
 
 .btn:hover::before {
   left: 100%;
 }
 
-/* About section */
+/* Enhanced About Section */
 #about { 
   background: linear-gradient(var(--gradient-angle), 
               var(--primary-gray) 0%, 
@@ -277,12 +325,11 @@ nav .container {
 
 .section-title {
   text-align: center;
-  font-size: 2.5rem;
-  margin-bottom: 40px;
+  font-size: 2.8rem;
+  margin-bottom: 60px;
   position: relative;
   padding-bottom: 20px;
   font-weight: 800;
-  color: var(--accent);
 }
 
 .section-title::after {
@@ -309,7 +356,9 @@ nav .container {
 .about-text h3 {
   font-size: 2rem;
   margin-bottom: 25px;
-  color: var(--accent);
+  background: linear-gradient(to right, var(--accent), var(--accent-alt));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 700;
 }
 
@@ -330,24 +379,26 @@ nav .container {
 .achievement {
   padding: 25px 20px;
   text-align: center;
-  background: rgba(20, 20, 20, 0.32);
-  backdrop-filter: blur(40px) saturate(230%);
-  -webkit-backdrop-filter: blur(40px) saturate(230%);
-  border: 1px solid var(--glass-border);
+  background: linear-gradient(135deg, 
+              rgba(30, 30, 30, 0.7) 0%, 
+              rgba(20, 20, 20, 0.8) 100%);
   border-radius: 24px;
-  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   transition: all 0.3s ease;
 }
 
 .achievement:hover {
-  background: rgba(25, 25, 25, 0.38);
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .achievement i {
   font-size: 2.8rem;
-  color: var(--accent);
+  background: linear-gradient(to bottom, var(--accent), var(--accent-alt));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 18px;
 }
 
@@ -364,7 +415,7 @@ nav .container {
   margin: 0;
 }
 
-/* Channel section */
+/* Enhanced Channel Section */
 #channel { 
   position: relative;
   background: linear-gradient(var(--gradient-angle), 
@@ -379,11 +430,13 @@ nav .container {
   margin: 0 auto;
   padding: 50px 40px;
   border-radius: 32px;
-  background: rgba(15, 15, 15, 0.32);
-  backdrop-filter: blur(42px) saturate(230%);
-  -webkit-backdrop-filter: blur(42px) saturate(230%);
+  background: var(--glass-dark);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .channel-content p {
@@ -393,7 +446,7 @@ nav .container {
   line-height: 1.8;
 }
 
-/* Contact section */
+/* Enhanced Contact Section */
 #contact { 
   background: linear-gradient(var(--gradient-angle), 
               var(--primary-light) 0%, 
@@ -406,11 +459,13 @@ nav .container {
   margin: 0 auto;
   padding: 50px 40px;
   border-radius: 32px;
-  background: rgba(15, 15, 15, 0.32);
-  backdrop-filter: blur(42px) saturate(230%);
-  -webkit-backdrop-filter: blur(42px) saturate(230%);
+  background: var(--glass-dark);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  box-shadow: 
+    0 20px 60px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .contact-form { 
@@ -465,15 +520,17 @@ nav .container {
   line-height: 1.6;
 }
 
-/* Scroll down text */
+/* Enhanced Scroll Down Text */
 .scroll-down-text {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  margin-top: 0;
-  font-size: 1rem;
+  margin-top: 35px;
+  font-size: 1.15rem;
   font-weight: 600;
-  color: var(--accent);
+  background: linear-gradient(to right, var(--accent), var(--accent-alt));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-decoration: none;
   animation: bounce 2s infinite;
   transition: all 0.3s ease;
@@ -492,7 +549,30 @@ nav .container {
   60% { transform: translateY(4px); }
 }
 
-/* Floating elements */
+/* Enhanced Scroll-spy active & tap styles */
+.nav-links a.active {
+  color: var(--accent);
+  font-weight: 700;
+  background: linear-gradient(135deg, 
+              rgba(201, 168, 122, 0.15) 0%, 
+              rgba(138, 107, 63, 0.1) 100%);
+}
+
+.nav-links a.active::after { 
+  width: 70%; 
+}
+
+.nav-links a.tap {
+  animation: navTap 220ms cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes navTap {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0.92); }
+  100% { transform: scale(1); }
+}
+
+/* Enhanced Floating Glass Elements */
 .bg-elements {
   position: absolute;
   top: 0; 
@@ -567,41 +647,15 @@ section::before {
   z-index: 0;
 }
 
-/* Mobile menu overlay */
-body.menu-open::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: rgba(5, 5, 5, 0.65);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  z-index: 1200;
-  opacity: 1;
-  transition: opacity 0.4s ease;
-}
-
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background: rgba(5, 5, 5, 0.65);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  z-index: 1200;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
-}
-
 /* Responsive Design */
 @media (max-width: 1200px) {
-  .big-heading { font-size: 3rem; }
+  .big-heading { font-size: 4.5rem; }
 }
 
 @media (max-width: 992px) {
   .about-content { grid-template-columns: 1fr; }
-  .big-heading { font-size: 2.8rem; }
-  .section-title { font-size: 2.2rem; }
+  .big-heading { font-size: 3.8rem; }
+  .section-title { font-size: 2.5rem; }
 }
 
 @media (max-width: 768px) {
@@ -617,14 +671,14 @@ body::before {
     left: -100%;
     width: 100%;
     height: calc(100vh - 80px);
-    background: rgba(5, 5, 5, 0.98);
+    background: var(--glass-dark);
+    backdrop-filter: blur(28px) saturate(180%);
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding-top: 60px;
     transition: left 0.4s ease;
     gap: 25px;
-    z-index: 1500;
   }
   
   .nav-links.active { left: 0; }
@@ -643,13 +697,13 @@ body::before {
   }
   
   .big-heading { 
-    font-size: 2.5rem; 
+    font-size: 3rem; 
     line-height: 1.2;
   }
   
   .section-title { 
-    font-size: 2rem; 
-    margin-bottom: 35px;
+    font-size: 2.2rem; 
+    margin-bottom: 45px;
   }
   
   .achievements { grid-template-columns: 1fr; }
@@ -664,7 +718,7 @@ body::before {
 
 @media (max-width: 576px) {
   .big-heading { 
-    font-size: 2.2rem; 
+    font-size: 2.5rem; 
   }
   
   .hero-content p { 
@@ -683,8 +737,377 @@ body::before {
     padding: 14px 30px;
     font-size: 1rem;
   }
-  
-  .section-title {
-    font-size: 1.8rem;
+}/* --- NAV LINK ADJUSTMENTS: REMOVE PILL & HIGHLIGHT --- */
+.nav-links a,
+.nav-links a.active {
+  background: transparent; /* remove the pill background */
+  color: var(--text-light);
+}
+
+.nav-links a:hover {
+  background: transparent; /* remove hover pill */
+  color: var(--accent);
+}
+
+/* Remove underline effect from active state */
+.nav-links a::after,
+.nav-links a.active::after {
+  width: 0; /* remove the underline */
+}
+
+/* Remove the line under the big heading */
+.big-heading::after {
+  display: none; /* disables the decorative line */
+}
+/* --- Your original CSS (with mobile menu fixes) --- */
+
+:root {
+  --primary-dark: #0A0A0A;           
+  --primary-gray: #141414;           
+  --primary-light: #1E1E1E;          
+  --accent: #C9A87A;                 
+  --accent-alt: #E0C092;             
+  --accent-secondary: #8A6B3F;       
+  --text-light: #F0F0F0;             
+  --text-secondary: #A0A0A0;         
+  --glass-dark: rgba(10, 10, 10, 0.88);
+  --glass-medium: rgba(30, 30, 30, 0.65);
+  --glass-light: rgba(255, 255, 255, 0.06);
+  --glass-border: rgba(201, 168, 122, 0.15);
+  --gradient-angle: 145deg;
+}
+
+/* General styles ... (all your existing CSS remains) */
+
+/* Mobile menu button */
+.menu-btn {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--text-light);
+  background: linear-gradient(135deg, 
+              rgba(201, 168, 122, 0.1) 0%, 
+              rgba(138, 107, 63, 0.05) 100%);
+  padding: 10px 14px;
+  border-radius: 12px;
+  z-index: 2000; /* ensure button stays clickable above nav */
+}
+
+/* Mobile nav links */
+@media (max-width: 768px) {
+  .menu-btn { display: flex; align-items: center; justify-content: center; }
+
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: var(--glass-dark);
+    backdrop-filter: blur(28px) saturate(180%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 60px;
+    gap: 25px;
+    transition: left 0.4s ease;
+    z-index: 1500;
   }
+
+  .nav-links.active { left: 0; }
+
+  .nav-links li { margin: 0; width: 100%; text-align: center; }
+
+  .nav-links a { display: block; width: 80%; margin: 0 auto; padding: 16px; }
+}
+
+/* --- rest of your CSS remains unchanged --- */
+/* Active + Tap Effect */
+.nav-links a.active,
+.nav-links a.tap {
+  color: #00f5d4;      /* highlight color */
+  transform: scale(0.95);
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+/* Optional hover */
+.nav-links a:hover {
+  color: #00f5d4;
+}
+/* Active + Tap Effect (scroll-spy + click/tap) */
+.nav-links a.active,
+.nav-links a.tap {
+  color: var(--accent); /* gold accent */
+  font-weight: 700;
+  transform: scale(0.95);
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+/* Active underline (works with scroll-spy + tap) */
+.nav-links a.active::after,
+.nav-links a.tap::after {
+  width: 70%; /* underline visible */
+  background: linear-gradient(to right, var(--accent), var(--accent-alt));
+}
+
+/* Hover still works */
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+/* Tap animation keyframes */
+.nav-links a.tap {
+  animation: navTap 220ms cubic-bezier(.2,.8,.2,1);
+}
+
+@keyframes navTap {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(0.92); }
+  100% { transform: scale(0.95); } /* syncs with active state */
+}
+/* --- Remove unwanted glow effects --- */
+
+/* Remove glow behind "Hey, I'm Fadhi" big heading */
+.big-heading {
+  text-shadow: none !important;
+}
+
+/* Remove glow/shadow behind "Visit my channel" button */
+.btn {
+  box-shadow: none !important;
+}
+/* --- Ultra Transparent Glass Effect --- */
+.glass {
+  background: rgba(10, 10, 10, 0.35) !important; /* very see-through */
+  backdrop-filter: blur(45px) saturate(240%) !important;
+  -webkit-backdrop-filter: blur(45px) saturate(240%) !important;
+  border: 1px solid rgba(201, 168, 122, 0.18) !important;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+.glass-light {
+  background: rgba(30, 30, 30, 0.28) !important;
+  backdrop-filter: blur(40px) saturate(220%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(220%) !important;
+  border: 1px solid rgba(201, 168, 122, 0.15) !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3) !important;
+}
+
+.hero-content,
+.channel-content,
+.contact-content {
+  background: rgba(15, 15, 15, 0.32) !important; /* almost clear */
+  backdrop-filter: blur(42px) saturate(230%) !important;
+  -webkit-backdrop-filter: blur(42px) saturate(230%) !important;
+  border: 1px solid rgba(201, 168, 122, 0.18) !important;
+}
+/* --- Transparent Glass Effect for Achievement Cards --- */
+.achievement-card {
+  background: rgba(20, 20, 20, 0.32) !important;  /* more see-through */
+  backdrop-filter: blur(40px) saturate(230%) !important;
+  -webkit-backdrop-filter: blur(40px) saturate(230%) !important;
+  border: 1px solid rgba(201, 168, 122, 0.18) !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3) !important;
+  transition: all 0.3s ease;
+}
+
+.achievement-card:hover {
+  background: rgba(25, 25, 25, 0.38) !important; /* slightly darker on hover */
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+/* Apply blur to nav menu when active (mobile toggle) */
+.nav-links.active {
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+}
+/* --- Blur + Dark Background when mobile menu is active --- */
+body.menu-open {
+  overflow: hidden; /* stop background scroll */
+}
+
+body.menu-open::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.6); /* darker overlay */
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 999; /* sits behind nav menu */
+  transition: opacity 0.4s ease;
+  opacity: 1;
+}
+
+/* Hide overlay when not active */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+/* Overlay behind nav menu */
+body.menu-open::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.65); /* darker black */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1200;  /* sits below nav menu */
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(5, 5, 5, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 1200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+
+/* Ensure nav menu is above overlay */
+.nav-links {
+  z-index: 1500;
+}
+/* --- Remove pill/background behind name text --- */
+.logo span {
+  background: none !important;         /* remove gradient background */
+  -webkit-background-clip: unset !important;
+  -webkit-text-fill-color: var(--accent) !important; /* keep the gold text */
+  padding: 0 !important;               /* remove any extra spacing */
+  border-radius: 0 !important;         /* remove pill corners */
+  font-size: 1.5rem !important;        /* slightly smaller text */
+  line-height: 1.1;
+}
+
+/* Optional: reduce the size of the whole logo if needed */
+.logo {
+  font-size: 1.6rem !important;        /* smaller logo text */
+  padding: 4px 8px !important;         /* reduce padding around logo */
+  background: none !important;         /* remove any background */
+}
+/* Make all sections visible instantly */
+section {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: none !important;  /* remove smooth fade/slide */
+}
+
+/* Make floating elements fully visible instantly */
+.bg-elements .element {
+  opacity: 0.15 !important;  /* default opacity */
+  animation-play-state: running !important; /* start animations immediately */
+}
+.bg-elements .element {
+  animation: float calc(6s + random(4s)) ease-in-out infinite alternate;
+  width: calc(20px + random(40px));
+  height: calc(20px + random(40px));
+}
+footer {
+  display: none !important;
+}
+.nav-links {
+  background: rgba(5, 5, 5, 0.98) !important; /* almost solid black tint */
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+/* Default nav-links (desktop) */
+.nav-links {
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* Only apply dark tint when mobile toggle is active */
+@media (max-width: 768px) {
+  .nav-links.active {
+    background: rgba(5, 5, 5, 0.98) !important; /* deep dark tint */
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+}
+/* === Standard Professional Text Spacing === */
+
+/* Apply to body text */
+body, p, span, li {
+  line-height: 1.5 !important;     /* clean vertical rhythm */
+  letter-spacing: 0 !important;    /* natural horizontal spacing */
+  word-spacing: 0.05em !important; /* subtle spacing for readability */
+}
+
+/* Headings tighter but still readable */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2 !important;     /* tighter, like Apple/Google */
+  letter-spacing: -0.01em !important;
+}
+
+/* Center hero content group */
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: auto; /* don’t stretch full height */
+  padding: 3rem 2rem;
+  gap: 1.5rem; /* vertical spacing between elements */
+}
+
+.hero-content h1 {
+  margin: 0;
+}
+
+.hero-content p {
+  margin: 0;
+  font-size: 1.2rem;
+  max-width: 700px;
+  line-height: 1.5;
+}
+
+.hero-content .scroll-down-text {
+  margin: 0;
+  font-size: 1rem;
+}
+/* === Global Font Sync for Branding Text === */
+
+/* Make sure logo text matches big-heading & section titles */
+.logo,
+.logo span,
+.big-heading,
+.section-title {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  font-weight: 800 !important;     /* bold, consistent */
+  letter-spacing: -0.5px !important;
+  line-height: 1.2 !important;
+  color: var(--accent) !important; /* same gold tone */
+  -webkit-text-fill-color: var(--accent) !important;
+  -webkit-background-clip: unset !important;
+  background: none !important;     /* remove gradient pills */
+  text-shadow: none !important;    /* no glow */
+}
+
+/* Size sync: logo smaller, headings larger */
+.logo {
+  font-size: 1.8rem !important;    /* clean, compact */
+}
+
+.big-heading {
+  font-size: 3.5rem !important;    /* hero title size */
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-size: 2.5rem !important;    /* section headers */
+  margin-bottom: 40px;
 }
