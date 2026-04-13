@@ -6,7 +6,7 @@
 
 👨‍💻 All of my projects are available at [https://fadhizamanpt.vercel.app/](https://fadhizamanpt.vercel.app/)<br><br>
 
-📫 How to reach me **fadhizamantsy@gmail.com**
+📫 Let’s connect: **fadhizamantsy@gmail.com**
 
 
 ## 🌐 Socials:
