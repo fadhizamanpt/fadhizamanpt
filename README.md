@@ -2,7 +2,11 @@
 <h3 align="center">Full Stack Developer building real SaaS products</h3>
 
 
-🔭 I’m currently working on [Shelfy](https://shelfylibrary.vercel.app/)<br><br>🌱 I’m currently learning **Advanced React patterns, Tailwind UI, AI automation tools.**<br><br> 👨‍💻 All of my projects are available at [https://fadhizamanpt.vercel.app/](https://fadhizamanpt.vercel.app/)<br><br>💬 Ask me about **React, TypeScript, Supabase.**<br><br>📫 How to reach me **fadhizamantsy@gmail.com**
+🔭 I’m currently working on [Shelfy](https://shelfylibrary.vercel.app/)<br><br>
+
+👨‍💻 All of my projects are available at [https://fadhizamanpt.vercel.app/](https://fadhizamanpt.vercel.app/)<br><br>
+
+📫 How to reach me **fadhizamantsy@gmail.com**
 
 
 ## 🌐 Socials:
