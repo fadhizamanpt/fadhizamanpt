@@ -18,3 +18,7 @@
 <p align="center">
   <img src="https://streak-stats.demolab.com?user=fadhizamanpt&theme=highcontrast&hide_border=true"/>
 </p>
+
+<p align="center">
+  <b>⚡ Consistently building real products, improving every iteration.</b>
+</p>
