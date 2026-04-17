@@ -2,9 +2,9 @@
 <h3 align="center">Full Stack Developer building real SaaS products</h3>
 
 
-🔭 I’m currently working on [Shelfy](https://shelfylibrary.vercel.app/)<br><br>
+🔭 I’m currently working on [Shelfy](https://shelfylibrary.vercel.app/)<br>
 
-👨‍💻 All of my projects are available at [https://fadhizamanpt.vercel.app/](https://fadhizamanpt.vercel.app/)<br><br>
+👨‍💻 All of my projects are available at [https://fadhizamanpt.vercel.app/](https://fadhizamanpt.vercel.app/)<br>
 
 📫 Let’s connect: **fadhizamantsy@gmail.com**
 
