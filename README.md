@@ -24,7 +24,7 @@ Full Stack Developer who enjoys turning ideas into well-built web products.
       <br>
       <b>B Company</b>
       <br><br>
-      <p>Description of your second project goes here. Replace this with the actual description when ready.</p>
+      <p>Fitness website for B COMPANY Fitness featuring programs, branches, contact, and social links.</p>
       <a href="https://bcompanyfitness.vercel.app/">Visit Website</a>
       <br><br>
     </td>
