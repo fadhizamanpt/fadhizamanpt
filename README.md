@@ -35,17 +35,32 @@ Full Stack Developer who enjoys turning ideas into well-built web products.
 
 ## What I do
 
-**Full Stack Architecture** — Design and build across the entire stack, from data modeling to UI.
-
-**Security & Auth** — JWT, OAuth 2.0 (Google), input validation, CSP headers, rate limiting, and secret scanning.
-
-**AI Integration** — Chatbots and automated content generation woven into real products.
-
-**Data & Exports** — Dashboard analytics, PDF reports, and CSV exports built for actual user needs.
-
-**UI & Experience** — Responsive, accessible interfaces with dark mode and smooth interactions.
-
-**SEO & Performance** — Structured data, Open Graph, and sitemaps configured for discoverability.
+<table width="100%">
+  <tr>
+    <td width="35%" valign="top"><b>Full Stack Architecture</b></td>
+    <td width="65%" valign="top">Design and build across the entire stack, from data modeling to user interface.</td>
+  </tr>
+  <tr>
+    <td valign="top"><b>Security & Auth</b></td>
+    <td valign="top">JWT, OAuth 2.0 (Google), input validation, CSP headers, rate limiting, and secret scanning.</td>
+  </tr>
+  <tr>
+    <td valign="top"><b>AI Integration</b></td>
+    <td valign="top">Chatbots and automated content generation woven into real products.</td>
+  </tr>
+  <tr>
+    <td valign="top"><b>Data & Exports</b></td>
+    <td valign="top">Dashboard analytics, PDF reports, and CSV exports built for actual user needs.</td>
+  </tr>
+  <tr>
+    <td valign="top"><b>UI & Experience</b></td>
+    <td valign="top">Responsive, accessible interfaces with dark mode and smooth interactions.</td>
+  </tr>
+  <tr>
+    <td valign="top"><b>SEO & Performance</b></td>
+    <td valign="top">Structured data, Open Graph, and sitemaps configured for discoverability.</td>
+  </tr>
+</table>
 
 ---
 
