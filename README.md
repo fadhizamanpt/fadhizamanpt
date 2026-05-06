@@ -2,13 +2,34 @@
 
 Full Stack Developer who enjoys turning ideas into well-built web products.
 
-Open to freelance projects, collaborations, and full-time opportunities — [fadhizamantsy@gmail.com](mailto:fadhizamantsy@gmail.com) · [LinkedIn](https://www.linkedin.com/in/fadhizamanpt/)
+[Portfolio](https://fadhizamanpt.vercel.app/) · [LinkedIn](https://www.linkedin.com/in/fadhizamanpt/) · [Email](mailto:fadhizamantsy@gmail.com)
 
 ---
 
-## Currently building
+## Projects
 
-**[Shelfy](https://shelfylibrary.vercel.app/)** — A library management SaaS app.
+<br>
+
+<table width="100%">
+  <tr>
+    <td width="50%" align="left" valign="top" border="1">
+      <br>
+      <b>Shelfy</b>
+      <br><br>
+      <p>Online library management system to manage books, members, and borrowings, with AI-powered search and summaries.</p>
+      <a href="https://shelfylibrary.vercel.app/">Visit Website</a>
+      <br><br>
+    </td>
+    <td width="50%" align="left" valign="top" border="1">
+      <br>
+      <b>B Company</b>
+      <br><br>
+      <p>Description of your second project goes here. Replace this with the actual description when ready.</p>
+      <a href="https://bcompanyfitness.vercel.app/">Visit Website</a>
+      <br><br>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -55,6 +76,4 @@ Open to freelance projects, collaborations, and full-time opportunities — [fad
 
 ---
 
-## Projects
-
-[fadhizamanpt.vercel.app](https://fadhizamanpt.vercel.app/)
+**Status** — Open to full-time roles and freelance work.
