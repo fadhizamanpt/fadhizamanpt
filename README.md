@@ -92,3 +92,5 @@ Full Stack Developer who enjoys turning ideas into well-built web products.
 ---
 
 **Status** — Open to full-time roles and freelance work.
+
+![snake gif](https://github.com/fadhizamanpt/fadhizamanpt/blob/output/github-contribution-grid-snake.gif)
